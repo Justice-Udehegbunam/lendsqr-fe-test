@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import "../../App.scss";
 
 .login {
-  //max-width: 1440px;
   font-family: "Montserrat", sans-serif;
   color: var(--primary-color);
   display: flex;
@@ -11,6 +11,13 @@
   margin: 0 3rem;
   gap: 2rem;
   height: 96vh;
+
+  @include extraSmallMobile {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 1.35rem;
+    height: unset;
+  }
 
   .login__img_section {
     margin-top: 0;
@@ -23,11 +30,21 @@
     .logo__img_section-logo {
       padding-bottom: 2.25rem;
       width: 8.56rem;
+
+      @include extraSmallMobile {
+        padding-bottom: unset;
+        margin-top: 7.5rem;
+        width: 100px;
+      }
     }
 
     .logo__img_section-illustration {
       margin: 4rem 0 16px;
       max-width: 31rem;
+
+      @include extraSmallMobile {
+        display: none;
+      }
     }
   }
 
@@ -37,18 +54,35 @@
     display: flex;
     flex-direction: column;
 
+    @include extraSmallMobile {
+      margin: 1rem 0;
+    }
+
     form {
       h1 {
         font-weight: 800;
         font-size: 40px;
-        line-height: 54.64px;
+        line-height: 44.64px;
         letter-spacing: -4%;
+
+        @include extraSmallMobile {
+          font-size: 28px;
+          line-height: 36px;
+          letter-spacing: -2%;
+        }
       }
       h2 {
         font-weight: 400;
         font-size: 20px;
         line-height: 27.32px;
-        margin: 1.5rem 0;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+
+        @include extraSmallMobile {
+          margin: 0.5rem 0;
+          font-size: 16px;
+          line-height: 1.5;
+        }
       }
 
       input {
@@ -60,8 +94,43 @@
         color: #545f7d;
         outline: none;
         border: 2px solid #545f7d26;
-        border-radius: 8px;
+        border-radius: 4px;
         margin-bottom: 1.3rem;
+      }
+
+      .login__form_password-field {
+        border: 2px solid #545f7d26;
+        border-radius: 4px;
+        padding: 2px 12px 2px 12px;
+        margin-bottom: 1.3rem;
+        // background: red;
+        gap: 4px;
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .login__form_password-input {
+          border: unset;
+          padding: unset;
+          //background: #000;
+          margin-bottom: unset;
+        }
+
+        .login__form_password-button {
+          // flex: 1;
+          color: var(--secondary-color);
+          background: transparent;
+          border: none;
+          font-size: 12px;
+          letter-spacing: 10%;
+          transform: translateY(-50%);
+
+          padding: unset;
+          width: unset;
+        }
       }
 
       a {
@@ -97,9 +166,6 @@
           background-color: #36c7c7;
           transition: 500ms ease-in-out;
         }
-      }
-
-      #emailInput {
       }
     }
   }
