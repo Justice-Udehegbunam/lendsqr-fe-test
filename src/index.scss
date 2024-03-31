@@ -1,3 +1,15 @@
-body {
-  background-color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #213f7d;
+  --secondary-color: #39cdcc;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
