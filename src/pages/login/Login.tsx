@@ -2,7 +2,7 @@ import "./Login.scss";
 
 import { loginIllustration, logo } from "../../assets";
 import { useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type User = {
   id: number;
@@ -13,6 +13,7 @@ type User = {
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,8 +38,12 @@ const Login: React.FC = () => {
       throw new Error("Invalid email or password");
     } catch (error) {
       console.error("Error logging in:", error);
-      alert("Error logging in. Please try again."); // Display a generic error message
+      alert("Invalid email or password"); // Display a generic error message
     }
+  };
+
+  const handlePasswordVisibilty = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -64,14 +69,25 @@ const Login: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <input
-            type="password"
-            id="passwordInput"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="login__form_password-field">
+            <input
+              className="login__form_password-input"
+              type={showPassword ? "text" : "password"}
+              id="passwordInput"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              onClick={handlePasswordVisibilty}
+              className="login__form_password-button"
+              type="button"
+              disabled={password === "" ? true : false}
+            >
+              {showPassword ? "HIDE" : "SHOW"}
+            </button>
+          </div>
           <a href="" className="login__forgot-password">
             FORGOT PASSWORD
           </a>

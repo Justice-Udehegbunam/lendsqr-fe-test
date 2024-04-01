@@ -1,10 +1,17 @@
 import "./App.scss";
-import Login from "./components/login/Login";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/login/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Router>
+        <Routes>
+          <Route element={<Login />} path="/" />
+          <Route element={<Dashboard />} path="/dashboard" />
+        </Routes>
+      </Router>
     </div>
   );
 }

@@ -2,3 +2,35 @@
 .App {
   font-family: "Open Sans", sans-serif;
 }
+
+@mixin extraSmallMobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin Mobile {
+  @media (min-width: 481px) and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin smallTablet {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin largeTablet {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) and (max-width: 1919px) {
+    @content;
+  }
+}
+@mixin xlDesktop {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
