@@ -2,7 +2,7 @@ import "./Login.scss";
 
 import { loginIllustration, logo } from "../../assets";
 import { useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type User = {
   id: number;
@@ -83,6 +83,7 @@ const Login: React.FC = () => {
               onClick={handlePasswordVisibilty}
               className="login__form_password-button"
               type="button"
+              disabled={password === "" ? true : false}
             >
               {showPassword ? "HIDE" : "SHOW"}
             </button>

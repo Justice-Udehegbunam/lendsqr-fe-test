@@ -19,6 +19,13 @@
     height: unset;
   }
 
+  @include smallTablet {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 1.35rem;
+    height: unset;
+  }
+
   .login__img_section {
     margin-top: 0;
     width: 100%;
@@ -36,6 +43,11 @@
         margin-top: 7.5rem;
         width: 100px;
       }
+      @include smallTablet {
+        padding-bottom: unset;
+        margin-top: 7.5rem;
+        width: 100px;
+      }
     }
 
     .logo__img_section-illustration {
@@ -43,6 +55,9 @@
       max-width: 31rem;
 
       @include extraSmallMobile {
+        display: none;
+      }
+      @include smallTablet {
         display: none;
       }
     }
