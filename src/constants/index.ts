@@ -1,4 +1,5 @@
 import {
+  activeUsers,
   auditLogs,
   decisionModels,
   feesAndCharges,
@@ -17,7 +18,10 @@ import {
   services,
   settlements,
   transactions,
+  userUsers,
   users,
+  usersWithLoans,
+  usersWithSavings,
   whiteList,
 } from "../assets";
 
@@ -25,6 +29,13 @@ type PropTypes = {
   id: number;
   imgUrl: string;
   text: string;
+};
+
+type UserConstants = {
+  id?: number;
+  imgUrl: string;
+  userDetails: string;
+  numOfUsers: string;
 };
 
 export const customers: PropTypes[] = [
@@ -133,5 +144,32 @@ export const settings: PropTypes[] = [
     id: 19,
     imgUrl: auditLogs,
     text: "Audit Logs",
+  },
+];
+
+export const UserDetails: UserConstants[] = [
+  {
+    id: 0,
+    imgUrl: userUsers,
+    userDetails: "USERS",
+    numOfUsers: "2,453",
+  },
+  {
+    id: 1,
+    imgUrl: activeUsers,
+    userDetails: "ACTIVE USERS",
+    numOfUsers: "2,453",
+  },
+  {
+    id: 2,
+    imgUrl: usersWithLoans,
+    userDetails: "USERS WITH LOANS",
+    numOfUsers: "12,453",
+  },
+  {
+    id: 3,
+    imgUrl: usersWithSavings,
+    userDetails: "USERS WITH SAVINGS",
+    numOfUsers: "102,453",
   },
 ];

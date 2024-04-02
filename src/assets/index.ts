@@ -29,6 +29,11 @@ import prefrences from "./svg/preferences.svg";
 import feesAndPricing from "./svg/feesPricing.svg";
 import auditLogs from "./svg/auditLogs.svg";
 
+import userUsers from "./svg/icon.svg";
+import activeUsers from "./svg/activeUsers.svg";
+import usersWithLoans from "./svg/usersWithLoans.svg";
+import usersWithSavings from "./svg/usersWithSavings.svg";
+
 export {
   logo,
   loginIllustration,
@@ -58,4 +63,8 @@ export {
   prefrences,
   feesAndPricing,
   auditLogs,
+  userUsers,
+  activeUsers,
+  usersWithLoans,
+  usersWithSavings,
 };
