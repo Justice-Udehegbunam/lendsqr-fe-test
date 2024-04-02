@@ -106,15 +106,15 @@
         font-size: 14px;
         line-height: 19.12px;
         padding: 8px 12px;
-        color: #545f7d;
+        color: var(--input-color);
         outline: none;
-        border: 2px solid #545f7d26;
+        border: 2px solid var(--input-border-color);
         border-radius: 4px;
         margin-bottom: 1.3rem;
       }
 
       .login__form_password-field {
-        border: 2px solid #545f7d26;
+        border: 2px solid var(--input-border-color);
         border-radius: 4px;
         padding: 2px 12px 2px 12px;
         margin-bottom: 1.3rem;
@@ -157,7 +157,7 @@
         margin-bottom: 1.2rem;
 
         &:hover {
-          color: #36c7c7;
+          color: var(--hover-color);
           transition: 500ms ease-in-out;
         }
       }
@@ -178,7 +178,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: #36c7c7;
+          background-color: var(--hover-color);
           transition: 500ms ease-in-out;
         }
       }

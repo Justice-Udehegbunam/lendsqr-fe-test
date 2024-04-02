@@ -1,0 +1,40 @@
+menu {
+  display: block;
+  z-index: 1; /* Ensure this value is higher than the z-index of the other container */
+  box-shadow: 8px 0px 8px 0px var(--shadow-color);
+  max-width: 283px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: normal;
+  color: var(--primary-color);
+  font-size: 16px;
+  line-height: 18.77px;
+
+  li,
+  a,
+  h4 {
+    margin-left: 2.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  h4 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    padding-top: 32px;
+  }
+
+  li {
+    margin-top: 32px;
+
+    &:last-child {
+      padding-bottom: 32px;
+    }
+  }
+}
