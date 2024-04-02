@@ -1,4 +1,3 @@
-import { UserDetails } from "../../constants";
 import "./UserInfoDisplayCard.scss";
 
 type UserConstants = {
@@ -9,14 +8,13 @@ type UserConstants = {
 };
 
 const UserInfoDisplayCard = ({
-  id,
   imgUrl,
   userDetails,
   numOfUsers,
 }: UserConstants) => {
   return (
     <>
-      <div key={id}>
+      <div className="user__info_display-card">
         <img src={imgUrl} alt={userDetails} />
         <h3>{userDetails}</h3>
         <h2>{numOfUsers}</h2>

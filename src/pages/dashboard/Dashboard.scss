@@ -1,5 +1,6 @@
-div {
+.dashboard {
   position: relative;
+
   section {
     display: flex;
     flex-direction: row;
@@ -8,7 +9,8 @@ div {
     background: #fcfcfc;
 
     .dashboard__section-alignment {
-      margin: 3rem;
+      width: 100%;
+      margin: 2.5rem 2.5rem 0 2.5rem;
     }
   }
 }

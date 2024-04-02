@@ -1,13 +1,14 @@
-import React from "react";
 import { UserDetails } from "../../constants";
 import UserInfoDisplayCard from "../../reusables/userInfoDisplayCard/UserInfoDisplayCard";
+import "./UsersInfoDisplay.scss";
 
 const UsersInfoDisplay = () => {
   return (
-    <div>
+    <div className="user__info_display">
       {UserDetails.map((item) => (
         <UserInfoDisplayCard
           key={item.id}
+          id={item.id}
           imgUrl={item.imgUrl}
           userDetails={item.userDetails}
           numOfUsers={item.numOfUsers}
