@@ -1,4 +1,4 @@
-import { dashboard, switchOrg } from "../../assets";
+import { dashboard, switchOrg, switchOrgDropDown } from "../../assets";
 import { businesses, customers, settings } from "../../constants";
 import "./SideBar.scss";
 
@@ -8,6 +8,7 @@ const SideBar = () => {
       <a href="">
         <img src={switchOrg} alt="briefcase" />
         Switch Organization
+        <img src={switchOrgDropDown} alt="switchOrgDropDown arrow" />
       </a>
 
       <a href="">

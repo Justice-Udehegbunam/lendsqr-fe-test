@@ -6,6 +6,7 @@ import navNotificationBell from "./img/navNotification.png";
 import navArrowDown from "./svg/navArrowDown.svg";
 
 import switchOrg from "./svg/switchOrg.svg";
+import switchOrgDropDown from "./svg/switchOrgDropdown.svg";
 import dashboard from "./svg/dashboard.svg";
 import users from "./svg/users.svg";
 import guarantors from "./svg/guarantors.svg";
@@ -35,6 +36,7 @@ export {
   navNotificationBell,
   navArrowDown,
   switchOrg,
+  switchOrgDropDown,
   dashboard,
   users,
   guarantors,

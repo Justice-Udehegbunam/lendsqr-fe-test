@@ -1,2 +1,15 @@
 div {
+  position: relative;
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 62px;
+    background: #fcfcfc;
+
+    .dashboard__section-alignment {
+      margin-left: 3rem;
+      margin-top: 3rem;
+    }
+  }
 }

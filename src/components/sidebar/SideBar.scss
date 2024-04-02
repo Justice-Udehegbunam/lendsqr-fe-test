@@ -1,6 +1,6 @@
 menu {
   display: block;
-  z-index: 1; /* Ensure this value is higher than the z-index of the other container */
+  z-index: 1;
   box-shadow: 8px 0px 8px 0px var(--shadow-color);
   max-width: 283px;
   font-family: "Work Sans", sans-serif;
@@ -8,6 +8,28 @@ menu {
   color: var(--primary-color);
   font-size: 16px;
   line-height: 18.77px;
+  overflow-y: auto;
+  max-height: calc(100vh - 58px);
+  overflow-x: hidden;
+  background: #fff;
+
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+  /* For Webkit browsers (Chrome, Safari) */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 14px;
+  }
 
   li,
   a,
@@ -28,6 +50,7 @@ menu {
 
   a {
     padding-top: 32px;
+    padding-right: 32px;
   }
 
   li {
