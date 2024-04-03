@@ -34,6 +34,9 @@ import activeUsers from "./svg/activeUsers.svg";
 import usersWithLoans from "./svg/usersWithLoans.svg";
 import usersWithSavings from "./svg/usersWithSavings.svg";
 
+import filterResultsBtn from "./svg/filter-results-button.svg";
+import threeDotsIcon from "./svg/threeDots.svg";
+
 export {
   logo,
   loginIllustration,
@@ -67,4 +70,6 @@ export {
   activeUsers,
   usersWithLoans,
   usersWithSavings,
+  filterResultsBtn,
+  threeDotsIcon,
 };
