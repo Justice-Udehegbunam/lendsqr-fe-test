@@ -79,8 +79,8 @@ const Table = () => {
                 <td>{rowData.phoneNumber}</td>
                 <td>{rowData.dateJoined}</td>
                 <td>
-                  <span className={getStatusClassName(rowData.staus)}>
-                    {getStatusText(rowData.staus)}
+                  <span className={getStatusClassName(rowData.status)}>
+                    {getStatusText(rowData.status)}
                   </span>
                 </td>
                 <td>

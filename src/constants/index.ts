@@ -44,7 +44,7 @@ type TableDataProps = {
   email: string;
   phoneNumber: number | string;
   dateJoined: string;
-  staus: {
+  status: {
     active: boolean;
     inactive: boolean;
     blacklisted: boolean;
@@ -195,7 +195,7 @@ export const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phoneNumber: "08078903721",
     dateJoined: "May 15, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: true,
       blacklisted: false,
@@ -208,7 +208,7 @@ export const tableData: TableDataProps[] = [
     email: "debby2@irorun.com",
     phoneNumber: "08160780928",
     dateJoined: "Apr 30, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: false,
       blacklisted: false,
@@ -221,7 +221,7 @@ export const tableData: TableDataProps[] = [
     email: "grace@lendstar.com",
     phoneNumber: "07060780922",
     dateJoined: "Apr 30, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: false,
       blacklisted: true,
@@ -234,7 +234,7 @@ export const tableData: TableDataProps[] = [
     email: "tosin@lendsqr.com",
     phoneNumber: "07003309226",
     dateJoined: "Apr 10, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: false,
       blacklisted: false,
@@ -247,7 +247,7 @@ export const tableData: TableDataProps[] = [
     email: "grace@lendstar.com",
     phoneNumber: "07060780922",
     dateJoined: "Apr 30, 2020 10:00 AM",
-    staus: {
+    status: {
       active: true,
       inactive: false,
       blacklisted: false,
@@ -260,7 +260,7 @@ export const tableData: TableDataProps[] = [
     email: "tosin@lendsqr.com",
     phoneNumber: "08060780900",
     dateJoined: "Apr 10, 2020 10:00 AM",
-    staus: {
+    status: {
       active: true,
       inactive: false,
       blacklisted: false,
@@ -273,7 +273,7 @@ export const tableData: TableDataProps[] = [
     email: "grace@lendstar.com",
     phoneNumber: "07060780922",
     dateJoined: "Apr 30, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: false,
       blacklisted: true,
@@ -286,7 +286,7 @@ export const tableData: TableDataProps[] = [
     email: "tosin@lendsqr.com",
     phoneNumber: "08060780900",
     dateJoined: "Apr 10, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: true,
       blacklisted: false,
@@ -299,7 +299,7 @@ export const tableData: TableDataProps[] = [
     email: "grace@lendstar.com",
     phoneNumber: "07060780922",
     dateJoined: "Apr 30, 2020 10:00 AM",
-    staus: {
+    status: {
       active: false,
       inactive: true,
       blacklisted: false,

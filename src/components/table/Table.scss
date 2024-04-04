@@ -71,7 +71,7 @@
     .inactive {
       display: inline-block; /* Ensure the span respects padding and border radius */
       padding: 8px 10px;
-      border-radius: 16px;
+      border-radius: 15px;
     }
 
     /* Styles for different status */
@@ -84,7 +84,7 @@
     .blacklisted {
       color: #e4033b;
 
-      background-color: #ffbebe;
+      background-color: #fbc9c9;
     }
 
     .pending {

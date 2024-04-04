@@ -2,9 +2,17 @@
   "users": [
     {
       "id": 1,
-      "email": "justicefavour491@gmail.com",
-      "password": "password1"
+      "email": "justicefavour@gmail.com",
+      "password": "password1",
+      "name": "justice",
+      "imgUrl": "./1stUSer.png"
     },
-    { "id": 2, "email": "user2@gmail.com", "password": "password2" }
+    {
+      "id": 2,
+      "email": "user2@gmail.com",
+      "password": "password2",
+      "name": "user2",
+      "imgUrl": "./2ndUser.png"
+    }
   ]
 }

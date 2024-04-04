@@ -10,9 +10,9 @@ const Dashboard = () => {
       <Nav />
       <section>
         <SideBar />
-        <div className="dashboard__section-alignment">
+        {/* <div className="dashboard__section-alignment">
           <Main />
-        </div>
+        </div> */}
       </section>
     </div>
   );

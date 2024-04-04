@@ -22,23 +22,22 @@ const Login: React.FC = () => {
       const response = await fetch(`http://localhost:3500/users`);
       if (response.ok) {
         const users: User[] = await response.json();
-        console.log(users); // Specify the type of users as User[]
+        console.log(users);
         const matchedUser = users.find((user) => {
           console.log(user.email, user.password);
           return user.email === email && user.password === password;
         });
         if (matchedUser) {
-          localStorage.setItem("user", JSON.stringify(matchedUser)); // Store user data in local storage
+          localStorage.setItem("user", JSON.stringify(matchedUser));
           navigate("/dashboard");
-          console.log("matched user");
-          return; // Exit the function after successful login
+          return;
         }
       }
-      // If the response is not ok or no matching user was found
+
       throw new Error("Invalid email or password");
     } catch (error) {
       console.error("Error logging in:", error);
-      alert("Invalid email or password"); // Display a generic error message
+      alert("Invalid email or password");
     }
   };
 
