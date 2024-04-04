@@ -1,5 +1,7 @@
 import { tableData } from "../../constants";
+import React, { useState } from "react";
 import { filterResultsBtn, threeDotsIcon } from "../../assets";
+import UserOptions from "../userOptions/UserOptions";
 import "./Table.scss"; // Assuming you have defined styling for your table
 
 type Status = {
@@ -9,7 +11,19 @@ type Status = {
   pending: boolean;
 };
 
-const Table = () => {
+const Table: React.FC = () => {
+  const [showOptions, setShowOptions] = useState<boolean>(false);
+  const [hoveredRowIndex, setHoveredRowIndex] = useState<number>(-1);
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredRowIndex(index);
+    setShowOptions(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredRowIndex(-1);
+    setShowOptions(false);
+  };
   const getStatusClassName = (status: Status): string => {
     if (status.active) return "active";
     if (status.blacklisted) return "blacklisted";
@@ -83,10 +97,14 @@ const Table = () => {
                     {getStatusText(rowData.status)}
                   </span>
                 </td>
-                <td>
+                <td
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <button id="viewMore">
                     <img src={threeDotsIcon} alt="three dots" />
                   </button>
+                  {hoveredRowIndex === index && showOptions && <UserOptions />}
                 </td>
               </tr>
             ))}

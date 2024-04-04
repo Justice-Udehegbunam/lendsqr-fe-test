@@ -6,9 +6,15 @@
   z-index: 1;
   box-shadow: 0px 0px 6px var(--shadow-color);
   border-radius: 4px;
+  position: absolute;
+  top: auto; /* Reset top position */
+  right: 20px; /* Adjust as needed */
+  transform: translateY(-100%); /* Position it just above the button */
 
   .user-options__conatiner-listEl {
-    padding: 8px 16px;
+    padding: 8px 32px 8px 16px;
+    display: flex;
+    align-items: center;
 
     img {
       margin-right: 6px;

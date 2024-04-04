@@ -19,11 +19,15 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3500/users`);
+      const response = await fetch(
+        `https://run.mocky.io/v3/aadb02f2-9a44-4a9c-8fde-152aaf000c30`
+      );
       if (response.ok) {
-        const users: User[] = await response.json();
-        console.log(users);
-        const matchedUser = users.find((user) => {
+        const responseData = await response.json();
+        const users = responseData.users; // Access the array of users from the object
+        console.log("Type of users:", typeof users);
+        console.log("Users:", users);
+        const matchedUser = users.find((user: User) => {
           console.log(user.email, user.password);
           return user.email === email && user.password === password;
         });
@@ -32,9 +36,9 @@ const Login: React.FC = () => {
           navigate("/dashboard");
           return;
         }
+      } else {
+        throw new Error("Failed to fetch users");
       }
-
-      throw new Error("Invalid email or password");
     } catch (error) {
       console.error("Error logging in:", error);
       alert("Invalid email or password");
