@@ -36,6 +36,9 @@ import usersWithSavings from "./svg/usersWithSavings.svg";
 
 import filterResultsBtn from "./svg/filter-results-button.svg";
 import threeDotsIcon from "./svg/threeDots.svg";
+import viewDetailsIcon from "./svg/viewDetails.svg";
+import activateUserIcon from "./img/activateUser.png";
+import blacklistUserIcon from "./img/blacklistUser.png";
 
 export {
   logo,
@@ -72,4 +75,7 @@ export {
   usersWithSavings,
   filterResultsBtn,
   threeDotsIcon,
+  viewDetailsIcon,
+  activateUserIcon,
+  blacklistUserIcon,
 };

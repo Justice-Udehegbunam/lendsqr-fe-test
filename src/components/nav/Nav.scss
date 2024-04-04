@@ -36,6 +36,10 @@ nav {
       width: 20rem;
     }
 
+    @include Mobile {
+      display: none;
+    }
+
     @include extraSmallMobile {
       display: none;
     }
