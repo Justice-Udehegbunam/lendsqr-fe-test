@@ -29,11 +29,6 @@ import prefrences from "./svg/preferences.svg";
 import feesAndPricing from "./svg/feesPricing.svg";
 import auditLogs from "./svg/auditLogs.svg";
 
-import userUsers from "./svg/icon.svg";
-import activeUsers from "./svg/activeUsers.svg";
-import usersWithLoans from "./svg/usersWithLoans.svg";
-import usersWithSavings from "./svg/usersWithSavings.svg";
-
 import filterResultsBtn from "./svg/filter-results-button.svg";
 import threeDotsIcon from "./svg/threeDots.svg";
 import viewDetailsIcon from "./svg/viewDetails.svg";
@@ -69,10 +64,6 @@ export {
   prefrences,
   feesAndPricing,
   auditLogs,
-  userUsers,
-  activeUsers,
-  usersWithLoans,
-  usersWithSavings,
   filterResultsBtn,
   threeDotsIcon,
   viewDetailsIcon,

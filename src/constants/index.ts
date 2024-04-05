@@ -1,5 +1,4 @@
 import {
-  activeUsers,
   auditLogs,
   decisionModels,
   feesAndCharges,
@@ -18,10 +17,7 @@ import {
   services,
   settlements,
   transactions,
-  userUsers,
   users,
-  usersWithLoans,
-  usersWithSavings,
   whiteList,
 } from "../assets";
 
@@ -31,12 +27,12 @@ type PropTypes = {
   text: string;
 };
 
-type UserConstants = {
-  id?: number;
-  imgUrl: string;
-  userDetails: string;
-  numOfUsers: string;
-};
+// type UserConstants = {
+//   id?: number;
+//   imgUrl: string;
+//   userDetails: string;
+//   numOfUsers: string;
+// };
 
 type TableDataProps = {
   org: string;
@@ -161,32 +157,32 @@ export const settings: PropTypes[] = [
   },
 ];
 
-export const UserDetails: UserConstants[] = [
-  {
-    id: 0,
-    imgUrl: userUsers,
-    userDetails: "USERS",
-    numOfUsers: "2,453",
-  },
-  {
-    id: 1,
-    imgUrl: activeUsers,
-    userDetails: "ACTIVE USERS",
-    numOfUsers: "2,453",
-  },
-  {
-    id: 2,
-    imgUrl: usersWithLoans,
-    userDetails: "USERS WITH LOANS",
-    numOfUsers: "12,453",
-  },
-  {
-    id: 3,
-    imgUrl: usersWithSavings,
-    userDetails: "USERS WITH SAVINGS",
-    numOfUsers: "102,453",
-  },
-];
+// export const UserDetails: UserConstants[] = [
+//   {
+//     id: 0,
+//     imgUrl: userUsers,
+//     userDetails: "USERS",
+//     numOfUsers: "2,453",
+//   },
+//   {
+//     id: 1,
+//     imgUrl: activeUsers,
+//     userDetails: "ACTIVE USERS",
+//     numOfUsers: "2,453",
+//   },
+//   {
+//     id: 2,
+//     imgUrl: usersWithLoans,
+//     userDetails: "USERS WITH LOANS",
+//     numOfUsers: "12,453",
+//   },
+//   {
+//     id: 3,
+//     imgUrl: usersWithSavings,
+//     userDetails: "USERS WITH SAVINGS",
+//     numOfUsers: "102,453",
+//   },
+// ];
 
 export const tableData: TableDataProps[] = [
   {
