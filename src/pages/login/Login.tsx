@@ -1,8 +1,7 @@
 import "./Login.scss";
-
-import { loginIllustration, logo } from "../../assets";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginIllustration, logo } from "../../assets";
 
 type User = {
   id: number;
@@ -14,21 +13,20 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // State variable for loading indicator
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true when submitting the form
     try {
       const response = await fetch(
         `https://run.mocky.io/v3/aadb02f2-9a44-4a9c-8fde-152aaf000c30`
       );
       if (response.ok) {
         const responseData = await response.json();
-        const users = responseData.users; // Access the array of users from the object
-        console.log("Type of users:", typeof users);
-        console.log("Users:", users);
+        const users = responseData.users;
         const matchedUser = users.find((user: User) => {
-          console.log(user.email, user.password);
           return user.email === email && user.password === password;
         });
         if (matchedUser) {
@@ -42,6 +40,8 @@ const Login: React.FC = () => {
     } catch (error) {
       console.error("Error logging in:", error);
       alert("Invalid email or password");
+    } finally {
+      setIsLoading(false); // Set loading state to false when login process is complete
     }
   };
 
@@ -94,7 +94,9 @@ const Login: React.FC = () => {
           <a href="" className="login__forgot-password">
             FORGOT PASSWORD
           </a>
-          <button type="submit">Log In</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Log In"}
+          </button>
         </form>
       </div>
     </div>

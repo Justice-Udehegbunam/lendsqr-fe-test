@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .user__info_display-card {
   max-width: 240px;
   background-color: #fff;
@@ -7,6 +9,10 @@
   padding-right: 16%;
   border-radius: 4px;
   width: 100%;
+
+  @include smallTablet {
+    max-width: 210px;
+  }
 
   img {
     padding-top: 16px;

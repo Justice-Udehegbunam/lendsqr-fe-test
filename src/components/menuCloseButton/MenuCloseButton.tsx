@@ -10,7 +10,7 @@ const MenuCloseButton = ({ menuOpen, handleToggleMenu }: PropTypes) => {
     <button
       className="menu-toggle-button"
       onClick={handleToggleMenu}
-      title={menuOpen ? "Click to close" : "Click to open"}
+      title={menuOpen ? "Click to close menu" : "Click to open menu"}
     >
       {menuOpen ? "<" : ">"}
     </button>

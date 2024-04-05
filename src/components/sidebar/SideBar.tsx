@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { dashboard, switchOrg, switchOrgDropDown } from "../../assets";
 import { businesses, customers, settings } from "../../constants";
 import "./SideBar.scss";
@@ -9,7 +9,21 @@ const SideBar = ({ menuOpen }: PropTypes) => {
   const [activeIndex, setActiveIndex] = useState<number>(
     customers.length > 0 ? customers[0].id : -1
   );
-  const [isSubMenuVisible, setIsSubMenuVisible] = useState<boolean>(false);
+  const [isSubMenuVisible, setIsSubMenuVisible] = useState<boolean>(true);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsTabletOrMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleItemClick = (id: number) => {
     setActiveIndex(id === activeIndex ? -1 : id);
@@ -21,7 +35,9 @@ const SideBar = ({ menuOpen }: PropTypes) => {
 
   return (
     <menu
-      style={{ height: !isSubMenuVisible ? "180vh" : "unset" }}
+      style={{
+        height: !isSubMenuVisible && !isTabletOrMobile ? "180vh" : "120vh",
+      }}
       className={menuOpen ? "open" : "closed"}
     >
       <a onClick={handleSubMenuToggle}>
