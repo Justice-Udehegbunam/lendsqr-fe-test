@@ -1,12 +1,27 @@
 import "./Nav.scss";
-import {
-  logo,
-  navArrowDown,
-  navAvatar,
-  navNotificationBell,
-} from "../../assets";
+import { logo, navArrowDown, navNotificationBell } from "../../assets";
+import { useState, useEffect } from "react";
+
+type UserDetails = {
+  id: number;
+  email: string;
+  password: string;
+  name: string;
+  imgUrl: string;
+};
 
 const Nav = () => {
+  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
+
+  useEffect(() => {
+    // Retrieve user data from local storage
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setUserDetails(user);
+    }
+  }, []);
+
   return (
     <nav>
       <img src={logo} alt="logo" className="nav__logo" />
@@ -18,14 +33,22 @@ const Nav = () => {
       </div>
       <div className="nav__last-container">
         <a href="">Docs</a>
-        <img src={navNotificationBell} alt="notification" />
+        <img
+          src={navNotificationBell}
+          className="nav__last-container__notification-bell"
+          alt="notification"
+        />
         <div className="nav__last-container_profile">
-          <img
-            src={navAvatar}
-            alt="avatar"
-            className="nav__last-container_profile-img"
-          />
-          <p>Adedeji</p>
+          {userDetails && (
+            <>
+              <img
+                src={userDetails.imgUrl}
+                alt="imgUrl"
+                className="nav__last-container_profile-img"
+              />
+              <p>{userDetails.name}</p>
+            </>
+          )}
           <img src={navArrowDown} alt="" />
         </div>
       </div>

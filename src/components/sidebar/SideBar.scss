@@ -1,40 +1,147 @@
+@import "../../App.scss";
+
 menu {
   display: block;
-  z-index: 1; /* Ensure this value is higher than the z-index of the other container */
+  z-index: 1;
   box-shadow: 8px 0px 8px 0px var(--shadow-color);
-  max-width: 283px;
   font-family: "Work Sans", sans-serif;
   font-weight: normal;
   color: var(--primary-color);
   font-size: 16px;
   line-height: 18.77px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fff;
+  width: 100%;
+  max-width: 263px;
+
+  @include extraSmallMobile {
+    max-width: 200px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    height: auto;
+  }
+
+  @include smallTablet {
+    max-width: 228px;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    height: auto;
+  }
+
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+  /* For Webkit browsers (Chrome, Safari) */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 14px;
+  }
 
   li,
   a,
   h4 {
-    margin-left: 2.25rem;
+    padding-left: 2.25rem;
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
     width: 100%;
     gap: 8px;
+
+    @include extraSmallMobile {
+      padding-left: 12px;
+      gap: 6px;
+    }
+
+    @include smallTablet {
+      padding-left: 16px;
+      gap: 6px;
+    }
   }
 
   h4 {
     margin-top: 32px;
     margin-bottom: 16px;
+
+    @include extraSmallMobile {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    @include smallTablet {
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
   }
 
   a {
-    padding-top: 32px;
+    margin-top: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @include extraSmallMobile {
+      margin-top: 8px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    @include smallTablet {
+      margin-top: 14px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .active {
+    background: #daffff;
+    border-left: 3px solid var(--secondary-color);
+    //line-height: unset;
   }
 
   li {
-    margin-top: 32px;
+    margin-top: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+
+    @include extraSmallMobile {
+      margin-top: 8px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    @include smallTablet {
+      margin-top: 14px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
 
     &:last-child {
-      padding-bottom: 32px;
+      padding-bottom: 24px;
+
+      // @include smallTablet {
+      //   margin-top: 8px;
+      // }
     }
   }
+}
+
+.open {
+  display: block;
+}
+
+.closed {
+  display: none;
 }

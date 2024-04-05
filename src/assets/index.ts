@@ -6,6 +6,7 @@ import navNotificationBell from "./img/navNotification.png";
 import navArrowDown from "./svg/navArrowDown.svg";
 
 import switchOrg from "./svg/switchOrg.svg";
+import switchOrgDropDown from "./svg/switchOrgDropdown.svg";
 import dashboard from "./svg/dashboard.svg";
 import users from "./svg/users.svg";
 import guarantors from "./svg/guarantors.svg";
@@ -28,6 +29,12 @@ import prefrences from "./svg/preferences.svg";
 import feesAndPricing from "./svg/feesPricing.svg";
 import auditLogs from "./svg/auditLogs.svg";
 
+import filterResultsBtn from "./svg/filter-results-button.svg";
+import threeDotsIcon from "./svg/threeDots.svg";
+import viewDetailsIcon from "./svg/viewDetails.svg";
+import activateUserIcon from "./img/activateUser.png";
+import blacklistUserIcon from "./img/blacklistUser.png";
+
 export {
   logo,
   loginIllustration,
@@ -35,6 +42,7 @@ export {
   navNotificationBell,
   navArrowDown,
   switchOrg,
+  switchOrgDropDown,
   dashboard,
   users,
   guarantors,
@@ -56,4 +64,9 @@ export {
   prefrences,
   feesAndPricing,
   auditLogs,
+  filterResultsBtn,
+  threeDotsIcon,
+  viewDetailsIcon,
+  activateUserIcon,
+  blacklistUserIcon,
 };

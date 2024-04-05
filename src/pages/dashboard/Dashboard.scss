@@ -1,2 +1,44 @@
-div {
+@import "../../App.scss";
+.dashboard {
+  position: relative;
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 62px;
+    background: #fcfcfc;
+
+    width: 100%;
+    // background-color: green;
+
+    // .dashboard__section__sidebar_Andbutton {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: flex-start;
+    //   align-items: flex-start;
+    //   position: relative;
+    //   gap: 8px;
+    //   width: 100%;
+    // }
+
+    @include extraSmallMobile {
+      // height: 120vh;
+      margin-top: 40px;
+    }
+
+    .dashboard__section-alignment {
+      position: relative;
+
+      margin: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .open {
+      width: calc(100% - 300px);
+    }
+
+    .close {
+      width: 100%;
+    }
+  }
 }

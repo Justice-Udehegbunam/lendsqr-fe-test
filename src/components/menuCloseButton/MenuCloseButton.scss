@@ -1,0 +1,21 @@
+.menu-toggle-button {
+  position: sticky;
+  top: 100px;
+  left: 20px;
+
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+}

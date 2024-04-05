@@ -27,6 +27,27 @@ type PropTypes = {
   text: string;
 };
 
+// type UserConstants = {
+//   id?: number;
+//   imgUrl: string;
+//   userDetails: string;
+//   numOfUsers: string;
+// };
+
+type TableDataProps = {
+  org: string;
+  username: string;
+  email: string;
+  phoneNumber: number | string;
+  dateJoined: string;
+  status: {
+    active: boolean;
+    inactive: boolean;
+    blacklisted: boolean;
+    pending: boolean;
+  };
+};
+
 export const customers: PropTypes[] = [
   {
     id: 0,
@@ -133,5 +154,152 @@ export const settings: PropTypes[] = [
     id: 19,
     imgUrl: auditLogs,
     text: "Audit Logs",
+  },
+];
+
+// export const UserDetails: UserConstants[] = [
+//   {
+//     id: 0,
+//     imgUrl: userUsers,
+//     userDetails: "USERS",
+//     numOfUsers: "2,453",
+//   },
+//   {
+//     id: 1,
+//     imgUrl: activeUsers,
+//     userDetails: "ACTIVE USERS",
+//     numOfUsers: "2,453",
+//   },
+//   {
+//     id: 2,
+//     imgUrl: usersWithLoans,
+//     userDetails: "USERS WITH LOANS",
+//     numOfUsers: "12,453",
+//   },
+//   {
+//     id: 3,
+//     imgUrl: usersWithSavings,
+//     userDetails: "USERS WITH SAVINGS",
+//     numOfUsers: "102,453",
+//   },
+// ];
+
+export const tableData: TableDataProps[] = [
+  {
+    org: "Lendsqr",
+    username: "Adedeji",
+    email: "adedeji@lendsqr.com",
+    phoneNumber: "08078903721",
+    dateJoined: "May 15, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: true,
+      blacklisted: false,
+      pending: false,
+    },
+  },
+  {
+    org: "Irorun",
+    username: "Debby Ogana",
+    email: "debby2@irorun.com",
+    phoneNumber: "08160780928",
+    dateJoined: "Apr 30, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: false,
+      blacklisted: false,
+      pending: true,
+    },
+  },
+  {
+    org: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phoneNumber: "07060780922",
+    dateJoined: "Apr 30, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: false,
+      blacklisted: true,
+      pending: false,
+    },
+  },
+  {
+    org: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phoneNumber: "07003309226",
+    dateJoined: "Apr 10, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: false,
+      blacklisted: false,
+      pending: true,
+    },
+  },
+  {
+    org: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phoneNumber: "07060780922",
+    dateJoined: "Apr 30, 2020 10:00 AM",
+    status: {
+      active: true,
+      inactive: false,
+      blacklisted: false,
+      pending: false,
+    },
+  },
+  {
+    org: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phoneNumber: "08060780900",
+    dateJoined: "Apr 10, 2020 10:00 AM",
+    status: {
+      active: true,
+      inactive: false,
+      blacklisted: false,
+      pending: false,
+    },
+  },
+  {
+    org: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phoneNumber: "07060780922",
+    dateJoined: "Apr 30, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: false,
+      blacklisted: true,
+      pending: false,
+    },
+  },
+  {
+    org: "Lendsqr",
+    username: "Tosin Dokunmu",
+    email: "tosin@lendsqr.com",
+    phoneNumber: "08060780900",
+    dateJoined: "Apr 10, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: true,
+      blacklisted: false,
+      pending: false,
+    },
+  },
+  {
+    org: "Lendstar",
+    username: "Grace Effiom",
+    email: "grace@lendstar.com",
+    phoneNumber: "07060780922",
+    dateJoined: "Apr 30, 2020 10:00 AM",
+    status: {
+      active: false,
+      inactive: true,
+      blacklisted: false,
+      pending: false,
+    },
   },
 ];
