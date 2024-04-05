@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# Lendsqr Frontend Assessment Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Hello! Welcome to my submission for the Lendsqr Frontend Assessment project. This project is my attempt to showcase my skills as a frontend engineer by building a web application based on the design provided in Figma.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React with TypeScript
+- SCSS for styling
+- Mock API using mocky.io
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Challenges Faced
 
-- Configure the top-level `parserOptions` property like this:
+Throughout the development of this project, I encountered several challenges that tested my problem-solving skills and attention to detail:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. **Implementing Pagination**: Initially, implementing pagination for the table data fetched from the mock API posed a challenge. It required careful state management to track the current page and items per page, ensuring smooth navigation through the data.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Responsive Design**: Achieving a responsive design that looks good across different devices was a significant challenge. I had to carefully adjust the layout and styling using media queries in SCSS to ensure optimal viewing on desktop, mobile, and tablet devices.
+
+3. **Loading State**: Providing feedback to users while fetching data asynchronously was crucial. Managing the loading state and displaying a loading indicator required thoughtful handling using React's useState and useEffect hooks.
+
+4. **Visual Fidelity**: Ensuring that the application matches the design provided in Figma pixel by pixel was a meticulous task. I paid close attention to detail and meticulously adjusted the styling to achieve the desired visual fidelity.
+
+## Approach Taken
+
+To overcome these challenges and build a high-quality application, I adopted the following approach:
+
+1. **Component-Based Development**: I structured the application using a component-based approach, breaking down the UI into reusable components such as Login, Dashboard, Sidebar, and Pagination. This facilitated code organization and maintainability.
+
+2. **State Management**: I used React's useState and useEffect hooks for state management. State variables were utilized to track user input, loading states, and pagination data, ensuring a smooth user experience.
+
+3. **Styling with SCSS**: SCSS was employed for styling to leverage its features such as variables, mixins, and nesting. This resulted in cleaner and more maintainable CSS code, enhancing the development process.
+
+4. **Mock API Integration**: I utilized the mock API provided by mocky.io to simulate data fetching for the application. This enabled realistic testing of data fetching and pagination functionality, ensuring the application behaves as expected.
+
+## Conclusion
+
+In conclusion, this project has been an exciting opportunity for me to demonstrate my frontend engineering skills. By leveraging React with TypeScript and SCSS, and adhering to best practices in frontend development, I have successfully built an application that meets the visual fidelity requirements and implements the required functionality.
+
+Thank you for considering my submission. I look forward to discussing my approach and insights further in the technical interview.
