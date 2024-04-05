@@ -10,20 +10,8 @@
     background: #fcfcfc;
 
     width: 100%;
-    // background-color: green;
-
-    // .dashboard__section__sidebar_Andbutton {
-    //   display: flex;
-    //   flex-direction: row;
-    //   justify-content: flex-start;
-    //   align-items: flex-start;
-    //   position: relative;
-    //   gap: 8px;
-    //   width: 100%;
-    // }
 
     @include extraSmallMobile {
-      // height: 120vh;
       margin-top: 40px;
     }
 
@@ -39,6 +27,9 @@
 
     .close {
       width: 100%;
+      @include smallTablet {
+        width: calc(100% - 50px);
+      }
     }
   }
 }

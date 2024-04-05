@@ -1,8 +1,8 @@
-import { tableData } from "../../constants";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { filterResultsBtn, threeDotsIcon } from "../../assets";
 import UserOptions from "../userOptions/UserOptions";
-import "./Table.scss"; // Assuming you have defined styling for your table
+import "./Table.scss";
+import Pagination from "../pagination/Pagination";
 
 type Status = {
   active: boolean;
@@ -11,9 +11,52 @@ type Status = {
   pending: boolean;
 };
 
+type RowData = {
+  org: string;
+  username: string;
+  email: string;
+  phoneNumber: string;
+  dateJoined: string;
+  status: Status;
+};
+
 const Table: React.FC = () => {
+  const [tableData, setTableData] = useState<RowData[]>([]);
   const [showOptions, setShowOptions] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage] = useState<number>(9);
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number>(-1);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://run.mocky.io/v3/c7329d64-3189-46cf-ad62-4a83d8b529ec"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setTableData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginateNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const paginatePrev = () => {
+    setCurrentPage(currentPage - 1);
+  };
 
   const handleMouseEnter = (index: number) => {
     setHoveredRowIndex(index);
@@ -24,12 +67,13 @@ const Table: React.FC = () => {
     setHoveredRowIndex(-1);
     setShowOptions(false);
   };
+
   const getStatusClassName = (status: Status): string => {
     if (status.active) return "active";
     if (status.blacklisted) return "blacklisted";
     if (status.pending) return "pending";
     if (status.inactive) return "inactive";
-    return ""; // Return default class or handle other cases
+    return "";
   };
 
   const getStatusText = (status: Status): string => {
@@ -37,7 +81,7 @@ const Table: React.FC = () => {
     if (status.blacklisted) return "Blacklisted";
     if (status.pending) return "Pending";
     if (status.inactive) return "Inactive";
-    return ""; // Return default text or handle other cases
+    return "";
   };
 
   return (
@@ -85,7 +129,7 @@ const Table: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {tableData.map((rowData, index) => (
+            {currentItems.map((rowData, index) => (
               <tr key={index}>
                 <td>{rowData.org}</td>
                 <td>{rowData.username}</td>
@@ -111,6 +155,13 @@ const Table: React.FC = () => {
           </tbody>
         </table>
       </div>
+      <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        totalItems={tableData.length}
+        paginateNext={paginateNext}
+        paginatePrev={paginatePrev}
+      />
     </div>
   );
 };
