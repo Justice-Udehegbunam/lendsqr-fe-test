@@ -1,3 +1,5 @@
+// UserOptions.tsx
+import React from "react";
 import {
   activateUserIcon,
   blacklistUserIcon,
@@ -6,21 +8,34 @@ import {
 
 import "./UserOption.scss";
 
-const UserOptions = () => {
+interface Props {
+  userStatus: string;
+}
+
+const UserOptions: React.FC<Props> = ({ userStatus }) => {
+  const isUserActive = userStatus === "Active";
+  const isUserBlacklisted = userStatus === "Blacklisted";
+
   return (
     <div className="user-options__conatiner">
-      <p className="user-options__conatiner-listEl">
+      <button className="user-options__conatiner-listEl">
         <img src={viewDetailsIcon} alt="view details icon" />
         <span>View Details</span>
-      </p>
-      <p className="user-options__conatiner-listEl">
+      </button>
+      <button
+        className="user-options__conatiner-listEl"
+        disabled={isUserBlacklisted === true}
+      >
         <img src={blacklistUserIcon} alt="blacklist user icon" />
         <span>Blacklist User</span>
-      </p>
-      <p className="user-options__conatiner-listEl">
+      </button>
+      <button
+        className="user-options__conatiner-listEl"
+        disabled={isUserActive}
+      >
         <img src={activateUserIcon} alt="activate user icon" />
-        <span>Activate User</span>
-      </p>
+        <span className={isUserActive ? "disabled" : ""}>Activate User</span>
+      </button>
     </div>
   );
 };

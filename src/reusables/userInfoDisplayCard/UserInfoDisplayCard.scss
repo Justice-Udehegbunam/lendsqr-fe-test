@@ -13,9 +13,17 @@
   @include smallTablet {
     max-width: 210px;
   }
+  @include extraSmallMobile {
+    max-width: 160px;
+    padding-left: 8px;
+  }
 
   img {
     padding-top: 16px;
+
+    @include extraSmallMobile {
+      padding-top: 12px;
+    }
   }
 
   h3 {
@@ -26,6 +34,10 @@
     margin-top: 8px;
     display: block;
     width: 180px;
+
+    @include extraSmallMobile {
+      font-size: 13px;
+    }
   }
 
   h2 {
@@ -35,5 +47,9 @@
     color: var(--primary-color);
     margin-top: 8px;
     padding-bottom: 24px;
+
+    @include extraSmallMobile {
+      font-size: 18px;
+    }
   }
 }

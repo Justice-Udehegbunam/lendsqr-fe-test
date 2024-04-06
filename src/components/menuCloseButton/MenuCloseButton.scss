@@ -1,7 +1,13 @@
+@import "../../App.scss";
+
 .menu-toggle-button {
   position: sticky;
   top: 100px;
   left: 20px;
+
+  @include extraSmallMobile {
+    display: none;
+  }
 
   transform: translateY(-50%);
   background-color: transparent;

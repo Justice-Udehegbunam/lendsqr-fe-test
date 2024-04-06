@@ -68,6 +68,13 @@ const Table: React.FC = () => {
     setShowOptions(false);
   };
 
+  // const updateUserData = (updatedUserData: RowData) => {
+  //   const updatedData = tableData.map((rowData, index) =>
+  //     index === hoveredRowIndex ? updatedUserData : rowData
+  //   );
+  //   setTableData(updatedData);
+  // };
+
   const getStatusClassName = (status: Status): string => {
     if (status.active) return "active";
     if (status.blacklisted) return "blacklisted";
@@ -148,7 +155,9 @@ const Table: React.FC = () => {
                   <button id="viewMore">
                     <img src={threeDotsIcon} alt="three dots" />
                   </button>
-                  {hoveredRowIndex === index && showOptions && <UserOptions />}
+                  {hoveredRowIndex === index && showOptions && (
+                    <UserOptions userStatus={getStatusText(rowData.status)} />
+                  )}
                 </td>
               </tr>
             ))}

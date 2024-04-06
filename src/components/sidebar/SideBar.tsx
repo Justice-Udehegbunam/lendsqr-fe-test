@@ -36,7 +36,7 @@ const SideBar = ({ menuOpen }: PropTypes) => {
   return (
     <menu
       style={{
-        height: !isSubMenuVisible && !isTabletOrMobile ? "180vh" : "120vh",
+        height: !isSubMenuVisible && !isTabletOrMobile ? "177vh" : "180vh",
       }}
       className={menuOpen ? "open" : "closed"}
     >

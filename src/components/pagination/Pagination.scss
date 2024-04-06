@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .pagination-container {
   margin-top: 16px;
   padding-bottom: 3rem;
@@ -17,6 +18,12 @@
     line-height: 16.42px;
     font-weight: normal;
 
+    @include extraSmallMobile {
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
     button {
       background: #213f7d1a;
 
@@ -27,6 +34,16 @@
       gap: 4px;
       outline: none;
       border: none;
+
+      @include extraSmallMobile {
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      img {
+        width: 8px;
+      }
     }
   }
 
@@ -36,9 +53,19 @@
     align-items: center;
     gap: 12px;
 
+    @include extraSmallMobile {
+      gap: 2px;
+    }
+
     p {
       font-size: 16px;
       line-height: 18.77px;
+
+      @include extraSmallMobile {
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
     }
 
     button {

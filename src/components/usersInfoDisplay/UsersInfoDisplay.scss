@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .user__info_display {
   width: 100%;
   display: flex;
@@ -6,4 +8,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
+
+  @include extraSmallMobile {
+    gap: 1rem;
+  }
 }

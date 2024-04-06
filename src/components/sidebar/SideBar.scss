@@ -13,7 +13,7 @@ menu {
   overflow-x: hidden;
   background: #fff;
   width: 100%;
-  max-width: 263px;
+  max-width: 283px;
 
   @include extraSmallMobile {
     max-width: 200px;
@@ -31,23 +31,23 @@ menu {
     height: auto;
   }
 
-  //scrollbar-width: thin; /* For Firefox */
-  // scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 
-  // /* For Webkit browsers (Chrome, Safari) */
+  /* For Webkit browsers (Chrome, Safari) */
 
-  // ::-webkit-scrollbar {
-  //   width: 8px;
-  // }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-  // ::-webkit-scrollbar-track {
-  //   background: var(--scrollbar-track);
-  // }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
 
-  // ::-webkit-scrollbar-thumb {
-  //   background-color: var(--scrollbar-thumb);
-  //   border-radius: 14px;
-  // }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 14px;
+  }
 
   li,
   a,
