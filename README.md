@@ -1,5 +1,12 @@
 # Lendsqr Frontend Assessment Project
 
+## To Login
+
+I have currently two passwaord fields saved to the data base
+
+- **Email**: justicefavour@gmail.com, **Password**: password1
+- **Email**: user2@gmail.com, **Password**: password2
+
 ## Introduction
 
 Hello! Welcome to my submission for the Lendsqr Frontend Assessment project. This project is my attempt to showcase my skills as a frontend engineer by building a web application based on the design provided in Figma.
