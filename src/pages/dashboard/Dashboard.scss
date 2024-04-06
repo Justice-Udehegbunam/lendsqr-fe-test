@@ -19,6 +19,10 @@
       position: relative;
 
       margin: 1.5rem 1.5rem 0 1.5rem;
+
+      @include extraSmallMobile {
+        margin: 0.5rem 0.5rem 0 0.5rem;
+      }
     }
 
     .open {
@@ -28,7 +32,10 @@
     .close {
       width: 100%;
       @include smallTablet {
-        width: calc(100% - 50px);
+        width: calc(100% - 80px);
+      }
+      @include extraSmallMobile {
+        width: calc(100% - 30px);
       }
     }
   }

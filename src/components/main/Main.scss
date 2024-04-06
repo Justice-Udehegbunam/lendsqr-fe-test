@@ -1,7 +1,8 @@
+@import "../../App.scss";
+
 .main {
   width: 100%;
   max-height: calc(100vh - 58px);
-  // background: yellow;
   h1 {
     font-weight: 500;
     padding-top: 12px;
@@ -10,5 +11,10 @@
     color: var(--primary-color);
     font-family: "Work Sans", sans-serif;
     margin-bottom: 30px;
+
+    @include extraSmallMobile {
+      padding-top: 16px;
+      margin-bottom: 16px;
+    }
   }
 }

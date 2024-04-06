@@ -4,7 +4,6 @@
   overflow-x: auto;
   max-width: 100%;
   width: 100%;
-  /* Ensure the table takes up the full width */
 
   background: #fff;
   box-shadow: 0px 0px 6px var(--shadow-color);
@@ -12,7 +11,7 @@
 
   table {
     width: 100%;
-    border-collapse: collapse; /* Ensure consistent spacing between cells */
+    border-collapse: collapse;
 
     th,
     td {
@@ -30,7 +29,7 @@
 
       span {
         display: inline-block;
-        max-width: calc(100% - 24px); /* Adjust for button width */
+        max-width: calc(100% - 24px);
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -46,7 +45,7 @@
     }
 
     tbody tr td {
-      border-bottom: 1px solid #ccc; /* Add bottom border to each cell */
+      border-bottom: 1px solid #ccc;
       font-size: 14px;
       font-weight: normal;
       color: var(--primary-color);
@@ -55,8 +54,8 @@
     }
 
     tbody tr:last-child td {
-      border-bottom: none; /* Remove bottom border from last row */
-      margin-bottom: 10px; /* Add margin to the last row */
+      border-bottom: none;
+      margin-bottom: 10px;
     }
 
     button {
@@ -67,14 +66,14 @@
     }
 
     tbody tr td:last-child {
-      padding-right: 20px; /* Add padding to the last cell */
+      padding-right: 20px;
     }
 
     .active,
     .blacklisted,
     .pending,
     .inactive {
-      display: inline-block; /* Ensure the span respects padding and border radius */
+      display: inline-block;
       padding: 8px 10px;
       border-radius: 15px;
     }
