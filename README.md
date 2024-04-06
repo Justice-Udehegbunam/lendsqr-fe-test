@@ -2,7 +2,7 @@
 
 ## To Login
 
-I have currently two passwaord fields saved to the data base
+I have currently two user fields saved to the data base
 
 - **Email**: justicefavour@gmail.com, **Password**: password1
 - **Email**: user2@gmail.com, **Password**: password2
