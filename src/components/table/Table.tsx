@@ -3,6 +3,7 @@ import { filterResultsBtn, threeDotsIcon } from "../../assets";
 import UserOptions from "../userOptions/UserOptions";
 import "./Table.scss";
 import Pagination from "../pagination/Pagination";
+import FilterFields from "../filterFields/FilterFields";
 
 type Status = {
   active: boolean;
@@ -26,6 +27,9 @@ const Table: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState<number>(9);
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number>(-1);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [showFilter, setShowFilter] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,8 +42,11 @@ const Table: React.FC = () => {
         }
         const data = await response.json();
         setTableData(data);
+        setLoading(false); // Update loading state after successful data fetch
       } catch (error) {
         console.error("Error fetching data:", error);
+        setFetchError("Failed to fetch table data");
+        setLoading(false);
       }
     };
 
@@ -63,17 +70,17 @@ const Table: React.FC = () => {
     setShowOptions(true);
   };
 
+  const handleFilterButtonClick = (filterIndex: number) => {
+    // Toggle the showFilter state
+    setShowFilter((prevFilterIndex) =>
+      prevFilterIndex === filterIndex ? null : filterIndex
+    );
+  };
+
   const handleMouseLeave = () => {
     setHoveredRowIndex(-1);
     setShowOptions(false);
   };
-
-  // const updateUserData = (updatedUserData: RowData) => {
-  //   const updatedData = tableData.map((rowData, index) =>
-  //     index === hoveredRowIndex ? updatedUserData : rowData
-  //   );
-  //   setTableData(updatedData);
-  // };
 
   const getStatusClassName = (status: Status): string => {
     if (status.active) return "active";
@@ -93,84 +100,100 @@ const Table: React.FC = () => {
 
   return (
     <div className="table">
-      <div className="table__container">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <span>Organization</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-              <th>
-                <span>Username</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-              <th>
-                <span>Email</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-              <th>
-                <span>Phone number</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-              <th>
-                <span>Date joined</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-              <th>
-                <span> Status</span>
-                <button>
-                  <img src={filterResultsBtn} alt="filter results button" />
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((rowData, index) => (
-              <tr key={index}>
-                <td>{rowData.org}</td>
-                <td>{rowData.username}</td>
-                <td>{rowData.email}</td>
-                <td>{rowData.phoneNumber}</td>
-                <td>{rowData.dateJoined}</td>
-                <td>
-                  <span className={getStatusClassName(rowData.status)}>
-                    {getStatusText(rowData.status)}
-                  </span>
-                </td>
-                <td
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button id="viewMore">
-                    <img src={threeDotsIcon} alt="three dots" />
-                  </button>
-                  {hoveredRowIndex === index && showOptions && (
-                    <UserOptions userStatus={getStatusText(rowData.status)} />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        totalItems={tableData.length}
-        paginateNext={paginateNext}
-        paginatePrev={paginatePrev}
-      />
+      {loading ? (
+        <p>Loading...</p>
+      ) : fetchError ? (
+        <p className="error">{fetchError}</p>
+      ) : (
+        <>
+          <div className="table__container">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <span>Organization</span>
+                    <button onClick={() => handleFilterButtonClick(1)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 1 && <FilterFields />}
+                  </th>
+                  <th>
+                    <span>Username</span>
+                    <button onClick={() => handleFilterButtonClick(2)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 2 && <FilterFields />}
+                  </th>
+                  <th>
+                    <span>Email</span>
+                    <button onClick={() => handleFilterButtonClick(3)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 3 && <FilterFields />}
+                  </th>
+                  <th>
+                    <span>Phone number</span>
+                    <button onClick={() => handleFilterButtonClick(4)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 4 && <FilterFields />}
+                  </th>
+                  <th>
+                    <span>Date joined</span>
+                    <button onClick={() => handleFilterButtonClick(5)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 5 && <FilterFields />}
+                  </th>
+                  <th>
+                    <span> Status</span>
+                    <button onClick={() => handleFilterButtonClick(6)}>
+                      <img src={filterResultsBtn} alt="filter results button" />
+                    </button>
+                    {showFilter === 6 && <FilterFields />}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((rowData, index) => (
+                  <tr key={index}>
+                    <td>{rowData.org}</td>
+                    <td>{rowData.username}</td>
+                    <td>{rowData.email}</td>
+                    <td>{rowData.phoneNumber}</td>
+                    <td>{rowData.dateJoined}</td>
+                    <td>
+                      <span className={getStatusClassName(rowData.status)}>
+                        {getStatusText(rowData.status)}
+                      </span>
+                    </td>
+                    <td
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <button id="viewMore">
+                        <img src={threeDotsIcon} alt="three dots" />
+                      </button>
+                      {hoveredRowIndex === index && showOptions && (
+                        <UserOptions
+                          userStatus={getStatusText(rowData.status)}
+                        />
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={tableData.length}
+            paginateNext={paginateNext}
+            paginatePrev={paginatePrev}
+          />
+        </>
+      )}
     </div>
   );
 };

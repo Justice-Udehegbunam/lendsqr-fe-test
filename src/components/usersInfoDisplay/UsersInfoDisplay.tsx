@@ -12,6 +12,8 @@ interface UserDetails {
 
 const UsersInfoDisplay: React.FC = () => {
   const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +26,11 @@ const UsersInfoDisplay: React.FC = () => {
         }
         const data: UserDetails[] = await response.json();
         setUserDetails(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching user information:", error);
+        setFetchError("Failed to users info");
+        setLoading(false);
       }
     };
 
@@ -34,15 +39,23 @@ const UsersInfoDisplay: React.FC = () => {
 
   return (
     <div className="user__info_display">
-      {userDetails.map((item) => (
-        <UserInfoDisplayCard
-          key={item.id}
-          id={item.id}
-          imgUrl={item.imgUrl}
-          userDetails={item.userDetails}
-          numOfUsers={item.numOfUsers}
-        />
-      ))}
+      {loading ? (
+        <p>Loading...</p>
+      ) : fetchError ? (
+        <p className="error">{fetchError}</p>
+      ) : (
+        <>
+          {userDetails.map((item) => (
+            <UserInfoDisplayCard
+              key={item.id}
+              id={item.id}
+              imgUrl={item.imgUrl}
+              userDetails={item.userDetails}
+              numOfUsers={item.numOfUsers}
+            />
+          ))}
+        </>
+      )}
     </div>
   );
 };

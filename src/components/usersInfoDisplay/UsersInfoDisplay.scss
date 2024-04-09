@@ -9,6 +9,12 @@
   flex-wrap: wrap;
   gap: 2rem;
 
+  .error {
+    color: red;
+    width: 100%;
+    //text-align: center;
+  }
+
   @include extraSmallMobile {
     gap: 1rem;
   }
