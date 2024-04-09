@@ -33,6 +33,8 @@ const Login: React.FC = () => {
           localStorage.setItem("user", JSON.stringify(matchedUser));
           navigate("/dashboard");
           return;
+        } else if (!matchedUser) {
+          alert("Invalid username or password!");
         }
       } else {
         throw new Error("Failed to fetch users");
