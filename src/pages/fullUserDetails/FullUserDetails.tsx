@@ -1,7 +1,14 @@
 import "./FullUserDetails.scss";
+import { Link } from "react-router-dom";
 
 const FullUserDetails = () => {
-  return <div>FullUserDetails</div>;
+  return (
+    <main>
+      <p>
+        <Link></Link>
+      </p>
+    </main>
+  );
 };
 
 export default FullUserDetails;

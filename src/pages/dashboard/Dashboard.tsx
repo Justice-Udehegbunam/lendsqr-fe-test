@@ -2,6 +2,7 @@ import Main from "../../components/main/Main";
 import MenuCloseButton from "../../components/menuCloseButton/MenuCloseButton";
 import Nav from "../../components/nav/Nav";
 import SideBar from "../../components/sidebar/SideBar";
+import FullUserDetails from "../fullUserDetails/FullUserDetails";
 
 import "./Dashboard.scss";
 import { useState } from "react";
@@ -28,7 +29,8 @@ const Dashboard = () => {
             menuOpen={menuOpen}
             handleToggleMenu={handleToggleMenu}
           />
-          <Main />
+          {/* <Main /> */}
+          <FullUserDetails/>
         </div>
       </section>
     </div>

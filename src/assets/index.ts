@@ -35,6 +35,11 @@ import viewDetailsIcon from "./svg/viewDetails.svg";
 import activateUserIcon from "./img/activateUser.png";
 import blacklistUserIcon from "./img/blacklistUser.png";
 
+import arrowBack from "./svg/arrowBack.svg";
+import userAvatar from "./img/userAvatar.png";
+import starred from "./svg/starred.svg";
+import notStarred from "./svg/notStarred.svg";
+
 export {
   logo,
   loginIllustration,
@@ -69,4 +74,8 @@ export {
   viewDetailsIcon,
   activateUserIcon,
   blacklistUserIcon,
+  arrowBack,
+  userAvatar,
+  starred,
+  notStarred,
 };

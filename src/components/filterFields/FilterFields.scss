@@ -14,7 +14,7 @@
   align-items: center;
 
   position: absolute;
-  top: calc(100% - 115px); // Position below the filter button
+  top: calc(100% + 8px); // Position below the filter button
   left: 0; // Align with the left edge of the filter button
   z-index: 1000;
 

@@ -30,6 +30,7 @@ const Table: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [showFilter, setShowFilter] = useState<number | null>(null);
+  const [filteredData, setFilteredData] = useState<RowData[]>([]); // State variable for filtered data
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,9 +54,16 @@ const Table: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    // Set filtered data to table data initially
+    setFilteredData(tableData);
+  }, [tableData, showFilter]);
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = showFilter
+    ? filteredData.slice(indexOfFirstItem, indexOfLastItem)
+    : tableData.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginateNext = () => {
     setCurrentPage(currentPage + 1);
@@ -98,6 +106,25 @@ const Table: React.FC = () => {
     return "";
   };
 
+  // Callback function to handle filter action
+  const handleFilter = (filters: { org: string; status: string }) => {
+    const { org, status } = filters;
+    const filtered = tableData.filter((item) => {
+      return (
+        (!org || item.org === org) &&
+        (!status || getStatusText(item.status) === status)
+      );
+    });
+    setFilteredData(filtered);
+    setShowFilter(1); // Hide filter fields after filtering
+  };
+
+  // Callback function to handle reset action
+  const handleReset = () => {
+    setFilteredData(tableData); // Reset filtered data to original table data
+    setShowFilter(null); // Hide filter fields after reset
+  };
+
   return (
     <div className="table">
       {loading ? (
@@ -112,45 +139,84 @@ const Table: React.FC = () => {
                 <tr>
                   <th>
                     <span>Organization</span>
-                    <button onClick={() => handleFilterButtonClick(1)}>
+                    <button
+                      onClick={() => handleFilterButtonClick(1)}
+                      title="Click to filter table"
+                    >
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 1 && <FilterFields />}
+                    {showFilter === 1 && (
+                      <FilterFields
+                        onFilter={handleFilter}
+                        onReset={handleReset}
+                      />
+                    )}
                   </th>
                   <th>
                     <span>Username</span>
-                    <button onClick={() => handleFilterButtonClick(2)}>
+                    <button
+                      onClick={() => handleFilterButtonClick(2)}
+                      title="Click to filter table"
+                    >
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 2 && <FilterFields />}
+                    {showFilter === 2 && (
+                      <FilterFields
+                        onFilter={handleFilter}
+                        onReset={handleReset}
+                      />
+                    )}
                   </th>
                   <th>
                     <span>Email</span>
-                    <button onClick={() => handleFilterButtonClick(3)}>
+                    <button
+                      onClick={() => handleFilterButtonClick(3)}
+                      title="Click to filter table"
+                    >
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 3 && <FilterFields />}
+                    {showFilter === 3 && (
+                      <FilterFields
+                        onFilter={handleFilter}
+                        onReset={handleReset}
+                      />
+                    )}
                   </th>
                   <th>
                     <span>Phone number</span>
-                    <button onClick={() => handleFilterButtonClick(4)}>
+                    <button
+                      onClick={() => handleFilterButtonClick(4)}
+                      title="Click to filter table"
+                    >
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 4 && <FilterFields />}
+                    {showFilter === 4 && (
+                      <FilterFields
+                        onFilter={handleFilter}
+                        onReset={handleReset}
+                      />
+                    )}
                   </th>
                   <th>
                     <span>Date joined</span>
-                    <button onClick={() => handleFilterButtonClick(5)}>
+                    <button
+                      onClick={() => handleFilterButtonClick(5)}
+                      title="Click to filter table"
+                    >
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 5 && <FilterFields />}
+                    {showFilter === 5 && (
+                      <FilterFields
+                        onFilter={handleFilter}
+                        onReset={handleReset}
+                      />
+                    )}
                   </th>
                   <th>
                     <span> Status</span>
-                    <button onClick={() => handleFilterButtonClick(6)}>
+                    <button>
                       <img src={filterResultsBtn} alt="filter results button" />
                     </button>
-                    {showFilter === 6 && <FilterFields />}
                   </th>
                 </tr>
               </thead>
